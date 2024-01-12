@@ -1,24 +1,33 @@
 'use client'
 import Card from './components/Card'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { IoAddCircle } from "react-icons/io5";
 import { FaRandom } from "react-icons/fa";
 
 export default function Home() {
-  const [topics, setTopics] = useState(() => {
-    const newTopics = localStorage.getItem("topics");
-    console.log('new', JSON.parse(newTopics || "[]"));
-    if (newTopics) {
-      return JSON.parse(newTopics);
-    }
-    return [];
-  });
+  const isMounted = useRef(false)
+  const [topics, setTopics] = useState([""]);
 
   const [selectedTopic, setSelectedTopic] = useState(0);
 
   useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true
+      return
+    }
     localStorage.setItem("topics", JSON.stringify(topics));
   }, [topics]);
+
+  useEffect(() => {
+    const newTopics = localStorage.getItem("topics");
+    console.log('new', JSON.parse(newTopics || "[]"));
+    if (newTopics) {
+      setTopics(JSON.parse(newTopics));
+    }
+    return () => {
+      isMounted.current = false
+    }
+  }, [])
 
 
   return (
