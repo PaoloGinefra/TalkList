@@ -25,7 +25,7 @@ export default function Home() {
     <div>
       <h1 className='text-center text-7xl text-bold p-10'>Talk list</h1>
       <div className='flex flex-col w-[80%] md:w-[20%] m-auto gap-4'>
-        {topics.map((topic, index) =>
+        {topics.map((topic: string, index: number) =>
           <Card key={index} title={topic} topics={topics} setTopics={setTopics} isSelected={selectedTopic == index} />
         )}
 
