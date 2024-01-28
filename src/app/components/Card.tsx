@@ -10,7 +10,7 @@ interface CardProps {
 
 export default function Card({ title, topics, setTopics, isSelected }: CardProps) {
   return (
-    <div className="text-center border rounded-xl overflow-hidden flex justify-center transition" style={{ transform: isSelected ? 'scale(1.1)' : 'scale(1)' }}>
+    <div className="text-center border rounded-xl overflow-hidden flex justify-center transition duration-500" style={{ transform: isSelected ? 'scale(1.1)' : 'scale(1)', backgroundColor: isSelected ? '#0e77c7' : '' }}>
       <input className=' bg-transparent text-center p-3 overflow-auto' type='text' value={title} onChange={
         (e) => {
           const newTopics = [...topics];
