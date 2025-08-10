@@ -1,3 +1,5 @@
+Turn scattered ideas into engaging conversations. Store topics as they pop up, and let this app pick one to keep discussions moving forward.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
